@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class SwerveInput : MonoBehaviour
 {
-    public float DisplacementX => displacementX;
-
     private float lastPosX;
     private float displacementX;
+    public float DisplacementX => displacementX;
 
     private void Update()
     {

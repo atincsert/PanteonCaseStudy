@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2765846728319981509}
   - component: {fileID: 109975059617063695}
   - component: {fileID: 1911296231784514267}
+  - component: {fileID: 3119210033908744010}
   m_Layer: 0
   m_Name: Horizontal Obstacle
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1911296231784514266}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: 2.98, z: -12.46}
-  m_LocalScale: {x: 21.524, y: 21.524, z: 21.524}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -94,6 +95,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d2d74a4b74e974cb0a6fa5d35d8157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 3
+  movementDuration: 1
+  impactForce: 10
   leftBoundary: -4
   rightBoundary: 4
+--- !u!65 &3119210033908744010
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911296231784514266}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09466179, y: 0.25618502, z: 0.09322367}
+  m_Center: {x: 0, y: 0, z: 0}

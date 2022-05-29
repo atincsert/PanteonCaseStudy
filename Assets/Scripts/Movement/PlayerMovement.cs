@@ -1,38 +1,56 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float speed = 3f;
+    [SerializeField] float forwardSpeed = 3f;
     [SerializeField] float swerveSpeed = 0.5f;
-    [SerializeField] float maxSwerve = 4f;
+    [SerializeField] float maxSwerve = 2.5f;
 
-    private SwerveInput swerveInput;
+    public event Action OnCameraPriorityChanged;
+
+    private Rigidbody rb;
+    private bool isStuck;
 
     private void Awake()
     {
-        swerveInput = GetComponent<SwerveInput>();
+        rb = GetComponent<Rigidbody>();
     }
+
     private void Update()
-    {
-        MoveForward();
+    {       
+        if (isStuck == true) return;
+        ForwardMovement();
         SwerveMovement();
     }
 
-    private void MoveForward()
-    {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+    private void ForwardMovement()
+    {   
+        transform.Translate(Vector3.forward * Time.deltaTime * forwardSpeed);
     }
 
     private void SwerveMovement()
     {
-        float swerveAmount = swerveInput.DisplacementX * Time.deltaTime * swerveSpeed;
-        swerveAmount = Mathf.Clamp(swerveAmount, -maxSwerve, maxSwerve);
-        transform.Translate(swerveAmount, 0, 0);
+        if (!Input.GetMouseButton(0)) return;
+        float additionalVector = Input.GetAxisRaw("Horizontal") * Time.deltaTime * swerveSpeed;
+        float finalPosX = Mathf.Clamp(transform.position.x + additionalVector, -maxSwerve, maxSwerve);
+        transform.position = new Vector3(finalPosX, transform.position.y, transform.position.z);
     }
-    //public float DisplacementValue()
-    //{
-    //    return displacementX;
-    //}
+
+    private void OnCollisionEnter(Collision collision)
+    {        
+        if (collision.gameObject.GetComponent<StaticObstacle>() != null ||
+            collision.gameObject.GetComponent<DynamicObstacleMovement>() != null ||
+            collision.gameObject.GetComponent<HalfDonutMover>() != null)
+        {
+            // ANÝM
+            isStuck = true;
+            rb.AddForce(transform.forward * -1, ForceMode.Impulse);
+        }
+    }
+    
+    // TODO : scenemanagement baþa döndüðünde amIStuckBruh = false again.
+
 }

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6651156889783463415}
   - component: {fileID: 7773912688465306194}
   - component: {fileID: 5478219031208040088}
+  - component: {fileID: 5246325769346589701}
+  - component: {fileID: 6247445507965280777}
   m_Layer: 0
   m_Name: RotatingStick
   m_TagString: Untagged
@@ -81,6 +83,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5246325769346589701
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6270830781776475981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.010651311, y: 0.010651311, z: 0.10582492}
+  m_Center: {x: 2.3283064e-10, y: 0.000000005355105, z: 0.07526629}
+--- !u!114 &6247445507965280777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6270830781776475981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b65e83055fad344b9b9ce7345aa225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateAngle: 180
 --- !u!1 &8105218510777510524
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +120,7 @@ GameObject:
   - component: {fileID: 8876689313142681798}
   - component: {fileID: 5521288292977295203}
   - component: {fileID: 7744917278092676009}
+  - component: {fileID: 4179695993219608010}
   m_Layer: 0
   m_Name: Rotator
   m_TagString: Untagged
@@ -163,3 +192,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4179695993219608010
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8105218510777510524}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04610876, y: 0.03645481, z: 0.04610878}
+  m_Center: {x: 0, y: -0.015811104, z: -0.000000008381904}
